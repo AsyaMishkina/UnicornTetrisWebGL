@@ -6,6 +6,11 @@
     <title>Unity WebGL Player | UnicornTetris</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -102,6 +107,39 @@
         });
       };
       document.body.appendChild(script);
+
+      function FromUnityToJSFunction() {   // inted from uUnity
+            //alert ("From Unity To Js starts");//this appears in prompt -window in user's browser'
+            console.log("FromUnityToJs in Index.html initialized");//you can see this log in browser when press ctrl+shift+K
+             seconds)=86400
+
+            //VKmethods
+            _VKShowBannerAdM();
+        }
+        //vkBridge functions methods
+
+        //vkBridge show banner advertisment
+        function _VKShowBannerAdM() {
+            vkBridge.send('VKWebAppShowBannerAd', {
+                banner_location: 'bottom'
+            })
+                .then((data) => {
+                    if (data.result) {
+                        // Ad showed successfully
+                    }
+                })
+                .catch((error) => {
+                    // Failture
+                    console.log(error);
+                });
+        }
+
+
+        //EVENTS
+        jQuery(document).ready(function ($) { //PAGE DOWNLOADED EVENT
+            vkBridge.send("VKWebAppInit", {});//init VK API
+            //FromUnityToJSFunction();
+        });
     </script>
   </body>
 </html>
