@@ -108,16 +108,18 @@
       };
       document.body.appendChild(script);
 
-      function FromUnityToJSFunction() {   // inted from uUnity
+      function FromUnityToJSFunction() {   // inited from uUnity
             //alert ("From Unity To Js starts");//this appears in prompt -window in user's browser'
             console.log("FromUnityToJs in Index.html initialized");//you can see this log in browser when press ctrl+shift+K
-            
-
-            //VKmethods
+             //VKmethods
             _VKShowBannerAdM();
         }
-        //vkBridge functions methods
-
+      function FromUnityToFSFunction1(){//inited from Unity
+        console.log("From Unity To JS1 initialized-hide banner");
+        _VKHideBannerAdM();
+      }
+        
+        //VK Bridge functions
         //vkBridge show banner advertisment
         function _VKShowBannerAdM() {
             vkBridge.send('VKWebAppShowBannerAd', {
@@ -133,6 +135,18 @@
                     console.log(error);
                 });
         }
+      //vkBridge hide banner advertisment
+        function _VKHideBannerAdM() {
+         vkBridge.send('VKWebAppHideBannerAd')
+        .then((data) => { 
+        if (data.result) {
+          //Banner hidden succefuly
+        }
+        })
+      .catch((error) => {
+      // Error
+      console.log(error);
+      });
 
 
         //EVENTS
