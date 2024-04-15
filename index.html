@@ -113,10 +113,12 @@
         function _VKShowBannerAdM() {
             vkBridge.send('VKWebAppShowBannerAd', {
                 banner_location: 'top'
+                console.log("VK SHOW BANNER");
             })
                 .then((data) => {
                     if (data.result) {
                         // Ad showed successfully
+                        console.log("VK show banner success");
                     }
                 })
                 .catch((error) => {
@@ -126,10 +128,12 @@
         }
         //vkBridge hide banner advertisment
         function _VKHideBannerAdM() {
+            colnsole.log ("VK HIDE BANNER");
             vkBridge.send('VKWebAppHideBannerAd')
                 .then((data) => {
                     if (data.result) {
                         //Banner hidden succefuly
+                        console.log("VK banner hidden successful");
                     }
                 })
                 .catch((error) => {
