@@ -168,13 +168,7 @@
 
 
 
-        function SendAnswerStringToUnityIfIsMobileFunction() {//this after initialization will call unity function on MainCamera and send to there bool
-            //const _isMobileB = (window.innerWidth <= 800) // if not pc return true
-            const _isMobileB =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            console.log(' user is mobile=' + _isMobileB);
-            myGameInstance.SendMessage('MainCamera', '_BRAchieveBrowserJSToUnityAnswerIsMobileBM', String(_isMobileB));//start public method
-        }
-
+       
 
         //EVENTS
         jQuery(document).ready(function ($) { //PAGE DOWNLOADED EVENT
